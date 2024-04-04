@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Меню</title>
+    <link rel="stylesheet" href="~/css/css.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        .bg {
+            background-color: #3498db;
+            padding: 20px;
+            color: white;
+        }
+
+        .div_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .li1 {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+        }
+
+            .li1:hover {
+                background-color: #2980b9;
+            }
+
+        .main_div {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cart_message {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .cart_message h1 {
+                font-size: 24px;
+                color: #333;
+            }
+
+        .cart_actions {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .cart_actions a {
+                text-decoration: none;
+                color: #3498db;
+                font-weight: bold;
+            }
+
+                .cart_actions a:hover {
+                    color: #2980b9;
+                }
+
+        .product {
+            margin: 20px;
+            width: 300px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+            .product img {
+                width: 100%;
+                height: auto;
+                border-radius: 5px;
+            }
+
+            .product h3 {
+                margin-top: 10px;
+                font-size: 18px;
+            }
+
+            .product h4 {
+                font-size: 16px;
+                color: #555;
+            }
+
+            .product a {
+                display: block;
+                margin-top: 10px;
+                text-decoration: none;
+                color: #3498db;
+                font-weight: bold;
+            }
+
+                .product a:hover {
+                    color: #2980b9;
+                }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <div class="div_header">
+
+            <a asp-controller="Home" asp-action="Index" class="li1"> Меню</a>
+            <a asp-controller="Home" asp-action="katalog" class="li1">Каталог</a>
+            <a asp-controller="Home" asp-action="Cart" class="li1">Корзина</a>
+            <a class="li1" href="@Url.Action("LogOut")">Выход</a>
+
+        </div>
+    </div>
+    <div class="main_div">
+        <div>
+            @if (Model.CartLines.Count == 0)
+            {
+                <div class="cart_message">
+                    <h1>Товаров в корзине нет</h1>
+                </div>
+            }
+            else
+            {
+                <div class="cart_actions">
+                    <a href="/Home/RemoveAllFromCart?IdGun=0"> Удалить все из Корзины</a>
+                </div>
+                @for (int i = 0; i < Model.CartLines.Count; i++)
+                {
+                    <div class="product">
+                        <img src="data:image;base64,@System.Convert.ToBase64String(Model.CartLines[i].Picture)"
+                     alt="Product Image">
+                        <h3>@Model.CartLines[i].View</h3>
+                        <h3>@Model.CartLines[i].Price</h3>
+                        <h4>@Model.CartLines[i].Description</h4>
+                        <a href="/Home/RemoveFromCart?Number=@i"> Удалить из Корзины</a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</body>
+</html>

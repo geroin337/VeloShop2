@@ -1,0 +1,35 @@
+header{
+  margin: 0 px;
+}
+.bg {
+  background-color: #616275;
+  hieght: 70px;
+}
+.li1 {
+  display: inline-block;
+  padding: 13px;
+  color: white;
+  font-size: 25px;
+  position: relative;
+  top: 2px;
+}
+
+.reg{
+  display:grid;
+  place-items: center;
+}
+.but{
+  display: grid;
+  place-items: center;
+}
+.button{
+  text-decoration: none;
+  color: black;
+  font-size: 50px;
+  border-style: solid;
+  border-width: 1px;
+  width: 440px;
+}
+.mot{
+  font: bold 20px Times;
+}

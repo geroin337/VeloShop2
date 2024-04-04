@@ -1,0 +1,50 @@
+﻿@model Krytoisaitmega3d.Models.Client
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="~/css/cssreg.css">
+
+</head>
+<style media="screen">
+    body {
+        background: #f3f3f3
+    }
+
+</style>
+<body>
+
+    </div>
+    <div class="bg">
+        <div class="div_header">
+
+
+            <a asp-controler="Home" asp-action="registracion" class="li1">Регистрация</a>
+            <a asp-controler="Home" asp-action="autorization" class="li1">Авторизация</a>
+        </div>
+
+    </div>
+    <div class="reg">
+        <form asp-action="registration">
+            <p style="display: grid;">
+                <label asp-for="Login" style="font-family: sans-serif; font-size: 15px; font-weight: bolder;">Ваш Логин:</label>
+                <input type="text" asp-for="Login" style="font-family: sans-serif; font-size: 15px; font-weight: lighter;" placeholder="MyLogin211">
+            </p>
+            <p style="display: grid;">
+                <label asp-for="EMail" style="font-family: sans-serif; font-size: 15px; font-weight: bolder;" for="email">Ваш E-mail:</label>
+                <input type="text" asp-for="EMail" style="font-family: sans-serif; font-size: 15px; font-weight: lighter;" placeholder="My@E.mail">
+            </p>
+            <p style="display: grid;">
+                <label asp-for="Password" style="font-family: sans-serif; font-size: 15px; font-weight: bolder;" for="password">Ваш пароль:</label>
+                <input type="text" asp-for="Password" style="font-family: sans-serif; font-size: 15px; font-weight: lighter;" placeholder="MyPa$3word">
+            </p>
+            <p>
+                <input style="border-color: #f00; background: #fff; font-family: sans-serif; font-size: 15px; font-weight: bolder;" type="submit" value="Зарегистрироваться">
+            </p>
+        </form>
+    </div>
+</body>
+<footer>
+</footer>
+</html>
